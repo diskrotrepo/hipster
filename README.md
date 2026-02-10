@@ -2,6 +2,8 @@
 
 A metadata analysis tool for the [Suno](https://suno.com) AI music platform. Paste a Suno song URL or ID to inspect its full creation history — prompts, tags, generation settings, and lineage across extends, covers, and upsamples.
 
+**Try it now:** [https://diskrot.github.io/hipster/](https://diskrot.github.io/hipster/)
+
 Built with Flutter for web.
 
 ## Features
@@ -38,4 +40,4 @@ flutter test
 - **get_it** — dependency injection
 - **http** — API calls to the Suno studio API
 - **shared_preferences** — local bearer token storage
-- **Firebase Hosting** — deployment target
+- **GitHub Pages** — deployment target
