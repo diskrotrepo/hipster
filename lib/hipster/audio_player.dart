@@ -151,11 +151,6 @@ class _AudioControlsState extends State<_AudioControls> {
                 setState(() {});
               },
             ),
-            IconButton(
-              icon: const Icon(Icons.download, color: Colors.white),
-              tooltip: 'Download',
-              onPressed: () => _downloadFile(widget.url),
-            ),
           ],
         ),
       ],
@@ -168,37 +163,6 @@ class _AudioControlsState extends State<_AudioControls> {
     return '$m:$s';
   }
 
-  Future<void> _downloadFile(String url) async {
-    try {
-      final response = await http.get(Uri.parse(url));
-      if (response.statusCode != 200) {
-        throw Exception('Failed to load file');
-      }
-
-      final jsBytes = response.bodyBytes.toJS;
-      final blobParts = [jsBytes].toJS;
-      final blob = web.Blob(blobParts);
-      final objectUrl = web.URL.createObjectURL(blob);
-      final anchor = web.document.createElement('a') as web.HTMLAnchorElement
-        ..href = objectUrl
-        ..download = url.split('/').last
-        ..style.display = 'none';
-
-      web.document.body?.appendChild(anchor);
-      anchor.click();
-      web.document.body?.removeChild(anchor);
-
-      web.URL.revokeObjectURL(objectUrl);
-    } catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Download failed'),
-          backgroundColor: Colors.red,
-        ),
-      );
-    }
-  }
 }
 
 class _ScrubberBar extends StatelessWidget {

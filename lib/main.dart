@@ -1,6 +1,4 @@
 // main.dart
-import 'dart:js_interop';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,10 +8,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:hipster/hipster/models/song.dart';
 import 'package:hipster/hipster/suno_service.dart';
 import 'package:hipster/utils.dart';
-import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:web/web.dart' as web;
 
 part 'hipster/song_meta_text.dart';
 part 'hipster/audio_player.dart';
